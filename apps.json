@@ -4193,6 +4193,7 @@
     "tags": "",
     "readme":"README.md",
     "interface": "interface.html",
+    "supports": ["BANGLEJS","BANGLEJS2"],
     "storage": [
       {"name":"accelerometer.app.js","url":"app.js"},
       {"name":"accelerometer.img","url":"app-icon.js","evaluate":true}
