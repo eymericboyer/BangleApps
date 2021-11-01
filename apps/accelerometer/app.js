@@ -22,6 +22,18 @@ function outOfTime() {
  
 }
 
+function createFirstLine() {
+  var firstLine = [
+    "Time",
+    "X",
+    "Y",
+    "Z",
+    "Diff",
+    "Magnitude"
+  ];
+  file.write(firstLine.join(",")+"\n");
+}
+
 function addLine(time, x,y,z,diff, mag) {
   var csv = [
     time,
@@ -61,6 +73,7 @@ function countDown() {
 
 function startTimer() {
   duration = durationInSeconds;
+  createFirstLine();
   countDown();
   if(!counterInterval) counterInterval = setInterval(countDown, 1000/hertz);
 }
