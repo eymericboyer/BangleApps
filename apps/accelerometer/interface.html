@@ -1,4 +1,4 @@
-<html>
+T<html>
   <head>
     <link rel="stylesheet" href="../../css/spectre.min.css">
   </head>
@@ -17,7 +17,7 @@ function getData() {
   Util.showModal("Loading...");
   // get the data
   dataElement.innerHTML = "";
-  Util.readStorageFile(`gpspoilog.csv`,data=>{
+  Util.readStorageFile(`accelTest04.csv`,data=>{
     csvData = data.trim();
     // remove window
     Util.hideModal();
@@ -49,7 +49,7 @@ function getData() {
 
 // You can call a utility function to save the data
 document.getElementById("btnSave").addEventListener("click", function() {
-  Util.saveCSV("gpsdata", csvData);
+  Util.saveCSV("accelTest04", csvData);
 });
 // Or you can also delete the file
 document.getElementById("btnDelete").addEventListener("click", function() {
