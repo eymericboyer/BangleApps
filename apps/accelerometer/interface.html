@@ -54,7 +54,7 @@ document.getElementById("btnSave").addEventListener("click", function() {
 // Or you can also delete the file
 document.getElementById("btnDelete").addEventListener("click", function() {
   Util.showModal("Deleting...");
-  Util.eraseStorageFile("gpspoilog.csv", function() {
+  Util.eraseStorageFile("accelTest04.csv", function() {
     Util.hideModal();
     getData();
   });
