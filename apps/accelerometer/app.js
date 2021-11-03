@@ -1,12 +1,79 @@
-var durationInSeconds = 10.0;
 var counterInterval;
 var hertz = 25; //max 25 
 var counter = 0;
-var fileName = "accelTest04.csv";
+var fileNumber = 0;
+var username = "testerEB";
+var hours = 0;
+var minutes = 0;
+var seconds = 10;
 
+//Allow to create file name
+function getFileName(username, fileNumber) {
+  return username + "_accelData_" + fileNumber + ".csv";
+}
+
+var fileName;// = getFileName(username, fileNumber);
 
 //Create file in append mode
-var file = require("Storage").open(fileName,"a");
+var file;// = require("Storage").open(fileName,"a");
+
+function durationInSeconds(hours, minutes, seconds){
+   return hours*3600 + minutes * 60 + seconds;
+}
+
+//Display Menu
+function showMenu() {
+  var menu = {
+    "" : { title : "User "+username },
+    "Exit" : function() {
+      load();
+    },
+    "File Number" : {
+      value : fileNumber,
+      min : 0,
+      max : 99,
+      onchange : v => { fileNumber=v; }
+    },
+    "Hours (max 2)" : {
+      value : hours,
+      min : 0,
+      max : 2,
+      onchange : v => { hours = v;}
+    },
+    "Minutes" : {
+      value : minutes,
+      min : 0,
+      max : 59,
+      onchange : v => { minutes = v;}
+    },
+    "Seconds" : {
+      value : seconds,
+      min : 0,
+      max : 60,
+      onchange : v => { seconds = v;}
+    },
+    "Hz (max 25)" : {
+      value : hertz,
+      min : 0,
+      max : 25,
+      onchange : v => { hertz = v;}
+    },
+    "Start" : function() {
+      E.showMenu();
+      startRecording();
+    },
+  };
+
+  E.showMenu(menu);
+}
+
+function getNbAsString(nb) {
+  var toReturn = nb.toString();
+  if(nb<9){
+    toReturn = "0"+toReturn;
+  }
+  return toReturn;
+}
 
 function outOfTime() {
   if(counterInterval) return;
@@ -56,7 +123,7 @@ function countDown() {
   if(duration <= 0) {
     clearInterval(counterInterval);
     counterInterval = undefined;
-    setWatch(startTimer, BTN2);
+    setWatch(startRecording, BTN2);
     outOfTime();
     return;
   }
@@ -71,16 +138,15 @@ function countDown() {
   g.flip();
 }
 
-function startTimer() {
-  duration = durationInSeconds;
+function startRecording() {
+  fileName = getFileName(username, getNbAsString(fileNumber));
+  file = require("Storage").open(fileName,"a");
+  duration = durationInSeconds(hours, minutes, seconds);
   createFirstLine();
   countDown();
   if(!counterInterval) counterInterval = setInterval(countDown, 1000/hertz);
 }
 
-
-E.showMessage("Press BTN1 to start");
-setWatch(startTimer, BTN1);
-
 Bangle.loadWidgets();
 Bangle.drawWidgets();
+showMenu();
