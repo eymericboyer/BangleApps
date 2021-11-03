@@ -4188,7 +4188,7 @@
     "name": "My Accel App",
     "shortName":"My Accel",
     "icon": "app.png",
-    "version":"0.04",
+    "version":"0.05",
     "description": "Reads data from Accelerometer and stores them in a file. Reading are made at max 25Hz.",
     "tags": "",
     "readme":"README.md",
