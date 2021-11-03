@@ -44,7 +44,7 @@ function countDown() {
   if(duration <= 0) {
     clearInterval(counterInterval);
     counterInterval = undefined;
-    setWatch(startTimer, BTN2);
+    //setWatch(startTimer, BTN2);
     outOfTime();
     return;
   }
