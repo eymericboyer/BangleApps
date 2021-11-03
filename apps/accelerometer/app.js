@@ -41,6 +41,7 @@ function countDown() {
   var accel = Bangle.getAccel();
   addLine(Date.now(), accel.x, accel.y, accel.z, accel.diff, accel.mag);
   counter ++;
+  setWatch(endTimer, BTN1);
   if(duration <= 0) {
     clearInterval(counterInterval);
     counterInterval = undefined;
@@ -57,6 +58,10 @@ function countDown() {
   g.setFont("Vector", 15);
   g.drawString(counter, g.getWidth()/2, g.getHeight()/4);
   g.flip();
+}
+
+function endTimer() {
+ duration = 0.0;
 }
 
 function startTimer() {
