@@ -1,4 +1,4 @@
-var durationInSeconds = 10.0;
+var durationInSeconds = 1800.0;
 var counterInterval;
 var hertz = 25; //max 25 
 var counter = 0;
