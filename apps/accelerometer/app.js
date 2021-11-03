@@ -41,7 +41,6 @@ function countDown() {
   var accel = Bangle.getAccel();
   addLine(Date.now(), accel.x, accel.y, accel.z, accel.diff, accel.mag);
   counter ++;
-  setWatch(endTimer, BTN1);
   if(duration <= 0) {
     clearInterval(counterInterval);
     counterInterval = undefined;
@@ -73,6 +72,8 @@ function startTimer() {
 
 E.showMessage("Press BTN1 to start");
 setWatch(startTimer, BTN1);
+setWatch(endTimer, BTN3);
+
 
 Bangle.loadWidgets();
 Bangle.drawWidgets();
