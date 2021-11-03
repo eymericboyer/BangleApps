@@ -2,7 +2,7 @@ var durationInSeconds = 600.0;
 var counterInterval;
 var hertz = 25; //max 25 
 var counter = 0;
-var fileName = "accelTest04.csv";
+var fileName = "accelTestInLab00.csv";
 
 
 //Create file in append mode
