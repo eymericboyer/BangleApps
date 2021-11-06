@@ -11,7 +11,7 @@ var initialDuration;
 
 //Allow to create file name
 function getFileName(username, fileNumber) {
-  return "accelData_" + username + fileNumber + ".csv";
+  return "accelData." + username + fileNumber + ".csv";
 }
 
 var fileName;// = getFileName(username, fileNumber);
