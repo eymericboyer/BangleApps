@@ -33,7 +33,7 @@ function showMenu() {
     "File Number" : {
       value : fileNumber,
       min : 0,
-      max : 99,
+      max : 9,
       onchange : v => { fileNumber=v; }
     },
     "Minutes" : {
@@ -66,7 +66,7 @@ function showMenu() {
 function getNbAsString(nb) {
   var toReturn = nb.toString();
   if(nb<9){
-    toReturn = "0"+toReturn;
+    toReturn = /*"0"+*/toReturn;
   }
   return toReturn;
 }
