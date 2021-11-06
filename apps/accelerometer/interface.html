@@ -20,7 +20,7 @@ function getData() {
       dataElement.innerHTML = "<p>No saved data</p>";
     } else {
       files.forEach(fn => {
-        fn = fn.slice(0,-1);
+        fn = fn.slice(-1);
         dataElement.innerHTML += `
 <div class="card">
   <div class="card-header">
