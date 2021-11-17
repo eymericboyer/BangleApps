@@ -1,5 +1,5 @@
 var counterInterval;
-var hertz = 20; //max 20 
+var hertz = 25; //max 25 
 var counter = 0;
 var fileNumber = 0;
 var username = "testerEB";
@@ -48,10 +48,10 @@ function showMenu() {
       max : 59,
       onchange : v => { seconds = v;}
     },
-    "Hz (max 20)" : {
+    "Hz (max 25)" : {
       value : hertz,
       min : 0,
-      max : 20,
+      max : 25,
       onchange : v => { hertz = v;}
     },
     "Start" : function() {
